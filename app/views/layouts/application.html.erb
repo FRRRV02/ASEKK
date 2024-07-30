@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Myapp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <div class="container mx-auto mt-20">
+  </div>
+
+  <% if flash[:notice] %>
+  <spam class="block sm:inline"><%= flash[:notice] %></span>
+  <% elsif flash[:alert] %>
+  <span class="block sm:inline"><%= flash[:alert] %></span>
+  <% end %>
+
+
+  <body>
+    <%= render 'shared/nav' %>
+    <main class="container mx-auto mt-28 px-5 flex">
+      <%= yield %>
+    </main>
+  </body>
+</html>

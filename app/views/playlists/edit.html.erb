@@ -1,0 +1,24 @@
+<h1>Edit Playlist</h1>
+
+<%= form_with model: @playlist, local: true do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <h2>Modify Songs</h2>
+    <% Song.all.each do |song| %>
+      <div>
+        <%= check_box_tag 'playlist[song_ids][]', song.id, @playlist.songs.include?(song) %>
+        <%= song.title %> by <%= song.artist %>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back to Playlists', playlists_path %>

@@ -1,0 +1,35 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <% content_for :title, "Artist" %>
+
+  <div class="flex justify-between items-center mb-5">
+    <h1 class="font-bold text-4xl">Artists</h1>
+    <%= link_to "New artist", new_artist_path, class: "rounded-lg py-3 px-5 bg-cyan-500 text-white block font-medium" %>
+  </div>
+
+  <table class="min-w-full mt-5">
+    <thead>
+      <tr>
+        <th class="px-4 py-2 bg-cyan-500 text-left">Name</th>
+        <th class="px-4 py-2 bg-cyan-500 text-left">Year</th>
+        <th class="px-4 py-2 bg-cyan-500 text-left">Nationality</th>
+        <th class="px-4 py-2 bg-cyan-500 text-left">Biography</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @artists.each do |artist| %>
+        <tr class="cursor-pointer hover:bg-cyan-500" onclick="window.location='<%= artist_path(artist) %>'">
+          <td class="border px-4 py-2"><%= artist.name %></td>
+          <td class="border px-4 py-2"><%= artist.year %></td>
+          <td class="border px-4 py-2"><%= artist.nationality %></td>
+          <td class="border px-4 py-2"><%= artist.biography %></td>
+           
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

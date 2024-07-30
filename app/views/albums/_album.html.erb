@@ -4,6 +4,12 @@
     <%= album.title %>
   </p>
 
+  <div>
+  <% if album.image.attached? %>
+  <%= image_tag url_for(album.image), class: "w-10 h-10" %> 
+  <% end %>
+  </div>
+
   <p class="my-5">
     <strong class="block font-medium mb-1">About:</strong>
     <%= album.about %>

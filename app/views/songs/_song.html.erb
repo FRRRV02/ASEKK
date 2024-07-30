@@ -1,9 +1,15 @@
 <div id="<%= dom_id song %>">
+  <div>
+  <% if song.image.attached? %>
+  <%= image_tag url_for(song.image), class: "w-10 h-10" %> 
+  <% end %>
+  </div>
+
   <p class="my-5">
     <strong class="block font-medium mb-1">Title:</strong>
     <%= song.title %>
   </p>
-
+  
   <p class="my-5">
     <strong class="block font-medium mb-1">Artist:</strong>
     <% song.artist.each do |artist| %>

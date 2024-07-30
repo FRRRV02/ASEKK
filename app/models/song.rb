@@ -1,5 +1,6 @@
 class Song < ApplicationRecord
     has_one_attached :file
+    has_one_attached :image
 
     extend FriendlyId
     friendly_id :title, use: :slugged

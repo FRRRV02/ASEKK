@@ -29,6 +29,11 @@
     <%= form.date_field :release, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
+  <div>
+    <%= form.label :image %><br>
+    <%= form.file_field :image %>
+  </div>
+
   <div class="my-5">
     <%= form.label :composer %>
     <%= form.text_field :composer, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>

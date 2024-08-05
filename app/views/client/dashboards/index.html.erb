@@ -1,8 +1,19 @@
-<div class="w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-  <% end %>
+<article class="group">
+  <img
+    alt=""
+    src="https://images.unsplash.com/photo-1466428996289-fb355538da1b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    class="h-56 w-full rounded-xl object-cover shadow-xl transition group-hover:grayscale-[50%]"
+  />
 
-  <% content_for :title, "Dashboards" %>
-  Client
-</div>
+  <div class="p-4">
+    <a href="#">
+      <h3 class="text-lg font-medium text-gray-900">Welcome to Client Page!</h3>
+    </a>
+
+    <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
+      Helloo guys, disini kalian bisa mencari dan menikmati musik sesuai dengan selera dan genre kalian. 
+      Di sini, kalian dapat menemukan berbagai macam lagu dari berbagai genre, mulai dari pop, rock, jazz, hingga klasik. 
+      Dengan antarmuka yang intuitif dan mudah digunakan, aplikasi ini memungkinkan kalian untuk mencari lagu-lagu terbaru maupun yang lama, mengeksplorasi album-album hits, dan menemukan artis-artis favorit kalian.
+    </p>
+  </div>
+</article>

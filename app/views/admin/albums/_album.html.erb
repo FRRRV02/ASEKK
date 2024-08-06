@@ -1,0 +1,34 @@
+<div id="<%= dom_id album %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Title:</strong>
+    <%= album.title %>
+  </p>
+
+  <div>
+  <% if album.image.attached? %>
+  <%= image_tag url_for(album.image), class: "w-10 h-10" %> 
+  <% end %>
+  </div>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">About:</strong>
+    <%= album.about %>
+  </p>
+
+  <p class="my-5">
+  <strong class="block font-medium mb-1">Song:</strong>
+  <% album.songs.each do |song| %>
+    <%= song.title%>
+    <% end %>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Release:</strong>
+    <%= album.release %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Credit:</strong>
+    <%= album.credit %>
+  </p>
+
+</div>

@@ -7,13 +7,7 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
   # Admin namespace
-  namespace :admin do
-    root "dashboards#index" #admindashboard
-  end
   
-  namespace :client do
-    root "dashboards#index"
-  end
   
   authenticated :user, -> user {user.admin?} do
     root to: 'admin/dashboards#index', as: :admin_root_path
@@ -28,12 +22,31 @@ Rails.application.routes.draw do
     root to:'statics#index'
   end
 
-  resources :profils
-  resources :albums
-  resources :songs, param: :id
-  resources :artists
 
+  #Admin namespace
+  authenticate :user, ->(user) { user.admin?} do
+    namespace :admin do
 
+      root "dashboard#index"    #Admin dashboard root
+      resources :profils
+      resources :albums
+      resources :songs, param: :id
+      resources :artists
+    end
+  end
+    
+  #Client namespace
+    namespace :client do
+
+      root "dashboard#index"    #Admin dashboard root
+      get 'statics/about', to: 'statics#about'
+      get 'statics/contact', to: 'statics#contact'
+      resources :albums, only: [:index, :show]
+      resources :artists, only: [:index, :show]
+      resources :statics
+      resources :songs, only: [:index, :show]
+    end
+      
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

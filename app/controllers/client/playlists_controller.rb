@@ -1,4 +1,4 @@
-class PlaylistsController < ApplicationController
+class Client::PlaylistsController < ApplicationController
         def index
           @playlists = Playlist.all
         end

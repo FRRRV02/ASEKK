@@ -1,4 +1,4 @@
-class SongsController < ApplicationController
+class Admin::SongsController < ApplicationController
   before_action :set_song, only: %i[ show edit update destroy ]
 
   # GET /songs or /songs.json

@@ -7,7 +7,6 @@
 
   <div class="flex justify-between items-center mb-5">
     <h1 class="font-bold text-4xl">Songs</h1>
-    <%= link_to "New song", new_song_path, class: "rounded-lg py-3 px-5 bg-cyan-500 text-white block font-medium" %>
   </div>
 
   <table class="min-w-full mt-5">
@@ -22,7 +21,7 @@
     </thead>
     <tbody>
       <% @songs.each do |song| %>
-        <tr class="cursor-pointer hover:bg-cyan-500" onclick="window.location='<%= song_path(song) %>'">
+        <tr class="cursor-pointer hover:bg-cyan-500" onclick="window.location='<%= client_song_path(song) %>'">
           <td class="border px-4 py-2"><%= song.title %></td>
           
           <td class="border px-4 py-2"><% song.artist.each do |artist| %>
